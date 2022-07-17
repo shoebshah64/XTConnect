@@ -39,7 +39,7 @@ class MDSocket_io(socketio.Client):
                  versions.
     """
 
-    def __init__(self, token, userID, reconnection=True, reconnection_attempts=0, reconnection_delay=1,
+    def __init__(self, token, userID, root, reconnection=True, reconnection_attempts=0, reconnection_delay=1,
                  reconnection_delay_max=50000, randomization_factor=0.5, logger=False, binary=False, json=None,
                  **kwargs):
         self.sid = socketio.Client(logger=True, engineio_logger=True)
@@ -72,15 +72,17 @@ class MDSocket_io(socketio.Client):
         self.sid.on('disconnect', self.on_disconnect)
 
         """Get the root url from config file"""
-        currDirMain = os.getcwd()
-        configParser = configparser.ConfigParser()
-        configFilePath = os.path.join(currDirMain, 'config.ini')
-        configParser.read(configFilePath)
-
-        self.port = configParser.get('root_url', 'root')
+        #currDirMain = os.getcwd()
+        #configParser = configparser.ConfigParser()
+        #configFilePath = os.path.join(currDirMain, 'config.ini')
+        #configParser.read(configFilePath)
+        #self.port = configParser.get('root_url', 'root')
+        self.port = root
+        
         self.userID = userID
         publishFormat = 'JSON'
-        self.broadcastMode = configParser.get('root_url', 'broadcastMode')
+        #self.broadcastMode = configParser.get('root_url', 'broadcastMode')
+        self.broadcastMode = 'Full'
         self.token = token
 
         port = f'{self.port}/?token='
