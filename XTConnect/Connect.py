@@ -13,7 +13,9 @@ import logging
 import requests
 from six.moves.urllib.parse import urljoin
 
-import Exception as ex
+#import Exception as ex
+
+from XTConnect import Exception as ex
 
 log = logging.getLogger(__name__)
 
@@ -36,17 +38,19 @@ class XTSConnect(XTSCommon):
     In production, you may initialise a single instance of this class per `api_key`.
     """
     """Get the configurations from config.ini"""
-    cfg = configparser.ConfigParser()
-    cfg.read('config.ini')
+    #cfg = configparser.ConfigParser()
+    #cfg.read('config.ini')
 
     # Default root API endpoint. It's possible to
     # override this by passing the `root` parameter during initialisation.
-    _default_root_uri = cfg.get('root_url', 'root')
+    #_default_root_uri = cfg.get('root_url', 'root')
+    _default_root_uri = 'http://xts.compositedge.com:9713/interactive'
     _default_login_uri = _default_root_uri + "/user/session"
     _default_timeout = 7  # In seconds
 
     # SSL Flag
-    _ssl_flag = cfg.get('SSL', 'disable_ssl')
+    #_ssl_flag = cfg.get('SSL', 'disable_ssl')
+    _ssl_flag = 'True'
 
     # Constants
     # Products
