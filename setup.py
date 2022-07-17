@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='XTConnect',
-    version='1.0.',
+    version='1.0.1',
     author='Shoeb Shah',
     author_email='shoebshah064@gmail.com',
     description='XTConnect API wrapper',
