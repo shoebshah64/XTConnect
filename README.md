@@ -9,7 +9,7 @@ https://symphonyfintech.com/xts-trading-front-end-api-v2/
 
 ## Installation
 
-pip install git+https://github.com/shoebshah64/xts.git
+pip install git+https://github.com/shoebshah64/XTConnect.git
 
 ### Prerequisites
 
