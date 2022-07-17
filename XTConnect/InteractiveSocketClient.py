@@ -38,7 +38,7 @@ class OrderSocket_io(socketio.Client):
                  versions.
     """
 
-    def __init__(self, token, userID, reconnection=True, reconnection_attempts=0, reconnection_delay=1,
+    def __init__(self, token, userID, root, reconnection=True, reconnection_attempts=0, reconnection_delay=1,
                  reconnection_delay_max=50000, randomization_factor=0.5, logger=False, binary=False, json=None,
                  **kwargs):
         self.sid = socketio.Client(logger=True, engineio_logger=True)
@@ -58,11 +58,12 @@ class OrderSocket_io(socketio.Client):
         self.token = token
 
         """Get root url from config file"""
-        currDirMain = os.getcwd()
-        configParser = configparser.RawConfigParser()
-        configFilePath = os.path.join(currDirMain, 'config.ini')
-        configParser.read(configFilePath)
-        self.port = configParser.get('root_url', 'root').strip()
+        #currDirMain = os.getcwd()
+        #configParser = configparser.RawConfigParser()
+        #configFilePath = os.path.join(currDirMain, 'config.ini')
+        #configParser.read(configFilePath)
+        #self.port = configParser.get('root_url', 'root').strip()
+        self.port = root.strip()
 
         port = f'{self.port}/?token='
 
