@@ -22,11 +22,12 @@ setuptools.setup(
         'certifi',
         'chardet',
         'idna',
-        'python-engineio',
-        'python-socketio',
+        'python-engineio==3.14.2',
+        'python-socketio==4.6.0',
         'requests',
         'six',
         'urllib3',
         'websocket-client'
         ],
 )
+#pip install python-engineio==3.14.2 python-socketio==4.6.0
